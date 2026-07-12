@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "targets": [
+      "datathon_kps_h_2_s_function"
+    ],
+    "ignore": [],
+    "source": "functions"
+  },
+  "client": {
+    "source": "crime-analytics-dashboard",
+    "plugin": "zcatalyst-cli-plugin-react"
+  }
+}

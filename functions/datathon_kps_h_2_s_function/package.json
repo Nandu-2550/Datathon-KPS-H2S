@@ -1,0 +1,10 @@
+{
+	"name": "datathon_kps_h_2_s_function",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "nandunusgavai@gmail.com",
+	"dependencies": {
+		"express": "^5.2.1",
+		"zcatalyst-sdk-node": "latest"
+	}
+}
