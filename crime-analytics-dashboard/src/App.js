@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import HotspotMap from './components/HotspotMap';
+import NetworkGraph from './components/NetworkGraph';
+import ChatInterface from './components/ChatInterface';
 
 // Fallback seeded dataset in case App is run standalone without proxy
 const FALLBACK_CASES = [
@@ -411,7 +414,25 @@ function App() {
               onClick={() => setActiveTab('analytics')}
               style={activeTab === 'analytics' ? styles.tabActive : styles.tabInactive}
             >
-              📊 Analytics Grid
+              📊 Overview
+            </button>
+            <button
+              onClick={() => setActiveTab('hotspots')}
+              style={activeTab === 'hotspots' ? styles.tabActive : styles.tabInactive}
+            >
+              📍 Hotspot Map
+            </button>
+            <button
+              onClick={() => setActiveTab('network')}
+              style={activeTab === 'network' ? styles.tabActive : styles.tabInactive}
+            >
+              🕸️ Network Analysis
+            </button>
+            <button
+              onClick={() => setActiveTab('chatbot')}
+              style={activeTab === 'chatbot' ? styles.tabActive : styles.tabInactive}
+            >
+              🤖 Crime Chatbot
             </button>
             <button
               onClick={() => setActiveTab('workbench')}
@@ -484,7 +505,11 @@ function App() {
           </div>
         </section>
 
-        {activeTab === 'analytics' ? (
+        {activeTab === 'hotspots' && <HotspotMap />}
+        {activeTab === 'network' && <NetworkGraph />}
+        {activeTab === 'chatbot' && <ChatInterface />}
+
+        {activeTab === 'analytics' && (
           <>
             {/* Filter & Search Toolbar Section */}
             <section style={styles.toolbarCard}>
@@ -731,8 +756,9 @@ function App() {
               </div>
             )}
           </>
-        ) : (
-          /* ZCQL DEVELOPER WORKBENCH TAB */
+        )}
+
+        {activeTab === 'workbench' && (
           <section style={styles.workbenchContainer}>
             <div style={styles.workbenchEditorCard}>
               <div style={styles.workbenchHeader}>
@@ -895,9 +921,10 @@ const styles = {
     border: '1px solid #334155'
   },
   tabActive: {
-    backgroundColor: '#2563eb',
-    color: 'white',
+    backgroundColor: 'rgba(0, 212, 255, 0.15)',
+    color: '#00D4FF',
     border: 'none',
+    borderBottom: '2px solid #00D4FF',
     padding: '8px 16px',
     borderRadius: '6px',
     fontSize: '13px',
@@ -907,8 +934,9 @@ const styles = {
   },
   tabInactive: {
     backgroundColor: 'transparent',
-    color: '#94a3b8',
+    color: '#8B949E',
     border: 'none',
+    borderBottom: '2px solid transparent',
     padding: '8px 16px',
     borderRadius: '6px',
     fontSize: '13px',

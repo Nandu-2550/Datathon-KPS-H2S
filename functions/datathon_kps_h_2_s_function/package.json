@@ -5,6 +5,7 @@
 	"author": "nandunusgavai@gmail.com",
 	"dependencies": {
 		"express": "^5.2.1",
+		"node-fetch": "2.6.9",
 		"zcatalyst-sdk-node": "latest"
 	}
 }
